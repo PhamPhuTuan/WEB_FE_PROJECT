@@ -96,14 +96,7 @@ const App = () => {
                     <Route
                         exact
                         path="/chat"
-                        render={() => currentUser ? <Chat /> : <Redirect to="/chat" />}
-                    />
-                    <Route
-                        exact
-                        path="/chat/:categoryName"
-                        render={(props) => currentUser
-                            ? <Category {...props} />
-                            : <Redirect to="/chat" />}
+                        render={() => currentUser ? <Chat /> : <Redirect to="/login" />}
                     />
                     <Route
                         exact

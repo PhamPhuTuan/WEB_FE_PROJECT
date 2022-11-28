@@ -84,7 +84,7 @@ const Serverchat = () => {
             </div>
 
             <div className="send-box">
-                <textarea 
+                <input 
                     value={message}  
                     onKeyDown={onEnterPress}
                     onChange={handleChange} 

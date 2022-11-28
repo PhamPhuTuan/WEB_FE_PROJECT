@@ -9,9 +9,13 @@ import { selectModalContent, selectModalState } from "../../redux/modal/modal.se
 import { BASE_IMG_URL } from "../../requests";
 import { VscChromeClose } from "react-icons/vsc";
 import { capitalizeFirstLetter, dateToYearOnly } from "../../utils";
-import { FaMinus, FaPlay, FaPlus } from "react-icons/fa";
+import { FaPlay} from "react-icons/fa";
 import { addToFavourites, removeFromFavourites } from "../../redux/favourites/favourites.actions";
 import useOutsideClick from "../../hooks/useOutsideClick";
+
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const DetailModal = () => {
 
@@ -62,6 +66,7 @@ const DetailModal = () => {
 						>
 							<motion.button
 								className="Modal__closebtn"
+								style={{width:'35px',height:'35px'}}
 								onClick={handleModalClose}
 							>
 								<VscChromeClose />
@@ -73,7 +78,7 @@ const DetailModal = () => {
 									src={backdrop_path ? `${BASE_IMG_URL}/${backdrop_path}` : ''}
 									alt={fallbackTitle}
 								/>
-								<div className="Modal__image--buttonswrp">
+								<div className="Modal__image--buttonswrp" style={{display:'flex', justifyContent: 'space-around'}}>
 									<Link
 										className="Modal__image--button"
 										onClick={handlePlayAnimation}
@@ -84,13 +89,19 @@ const DetailModal = () => {
 									</Link>
 									{!isFavourite
 										? (
-											<button className='Modal__image--button-circular' onClick={handleAdd}>
-												<FaPlus />
-											</button>
+											// <button className='Modal__image--button-circular' onClick={handleAdd}>
+											// 	<FaPlus />
+											// </button>
+											<IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px', marginLeft: '10px'}} onClick={handleAdd}>
+												<AddIcon/>
+											</IconButton>
 										): (
-											<button className='Modal__image--button-circular' onClick={handleRemove}>
-												<FaMinus />
-											</button>
+											<IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px', marginLeft: '10px'}} onClick={handleRemove}>
+												<RemoveIcon/>
+											</IconButton>
+											// <button className='Modal__image--button-circular' onClick={handleRemove}>
+											// 	<FaMinus />
+											// </button>
 										)}
 								</div>
 							</div>

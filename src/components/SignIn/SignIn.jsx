@@ -27,6 +27,7 @@ const SignIn = () => {
 			variants={staggerOne}
 			initial="initial"
 			animate="animate"
+			style={{display: 'flex', flexWrap:'wrap', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}
 			exit="exit"
 			className="SignIn__form"
 			onSubmit={handleSubmit(onSubmit)}
@@ -66,6 +67,7 @@ const SignIn = () => {
 				className={`SignIn__form--button button__submit ${isLoading && 'loading'}`}
 				disabled={isLoading}
 				color = "#141414"
+				style={{display: 'flex', flexWrap:'wrap', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}
 			>
 				{isLoading ? <Loader /> : 'Sign in'}
 			</motion.button>
@@ -75,6 +77,7 @@ const SignIn = () => {
 				className={`SignIn__form--button button__google ${isLoading && 'loading'}`}
 				onClick={() => dispatch(googleSignInStart())}
 				disabled={isLoading}
+				style={{display: 'flex', flexWrap:'wrap', justifyContent: 'center', alignContent: 'center', flexDirection: 'row'}}
 				color = "#141414"
 			>
 				{!isLoading && <FcGoogle />}

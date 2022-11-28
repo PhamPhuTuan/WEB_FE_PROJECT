@@ -2,12 +2,17 @@ import "./poster.scss"
 import { motion } from "framer-motion";
 import { posterFadeInVariants } from "../../motionUtils";
 import { BASE_IMG_URL } from "../../requests";
-import { FaChevronDown, FaMinus, FaPlay, FaPlus } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import useGenreConversion from "../../hooks/useGenreConversion";
 import { showModalDetail } from "../../redux/modal/modal.actions";
 import { useDispatch } from "react-redux";
 import { addToFavourites, removeFromFavourites } from "../../redux/favourites/favourites.actions";
 import { Link } from "react-router-dom";
+
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import InfoIcon from '@mui/icons-material/Info';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Poster = result => {
     const { item, item: { title, original_name, original_title, name, genre_ids, backdrop_path }, isFavourite } = result;
@@ -49,7 +54,7 @@ const Poster = result => {
                 </>
             )}
             <div className="Poster__info">
-                <div className="Poster__info--iconswrp">
+                <div style={{width: '100px', display: 'flex', justifyContent: 'space-around'}} className="Poster__info--iconswrp">
                     <Link
                         className="Poster__info--icon icon--play"
                         onClick={handlePlayAction}
@@ -59,17 +64,17 @@ const Poster = result => {
                     </Link>
                     {!isFavourite
                         ? (
-                            <button className='Poster__info--icon icon--favourite' onClick={handleAdd}>
-                                <FaPlus />
-                            </button>
+                            <IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleAdd}>
+								<AddIcon/>
+							</IconButton>
                         ): (
-                            <button className='Poster__info--icon icon--favourite' onClick={handleRemove}>
-                                <FaMinus />
-                            </button>
+                            <IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleRemove}>
+								<RemoveIcon/>
+							</IconButton>
                         )}
-                    <button className='Poster__info--icon icon--toggleModal'>
-                        <FaChevronDown onClick={handleModalOpening}/>
-                    </button>
+                    <IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleModalOpening}>
+                        <InfoIcon/>
+                    </IconButton>
                 </div>
                 <div className="Poster__info--title">
                     <h3>{fallbackTitle}</h3>

@@ -28,6 +28,7 @@ const SignUp = () => {
 			exit="exit"
 			className="SignUp__form"
 			onSubmit={handleSubmit(onSubmit)}
+			style={{display: 'flex', flexWrap:'wrap', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}
 		>
 			<motion.div variants={authFadeInUpVariants} className="SignUp__form--inputwrp">
 				<InputField
@@ -96,6 +97,7 @@ const SignUp = () => {
 				variants={authFadeInUpVariants}
 				className={`SignUp__form--button button__submit ${isLoading && 'loading'}`}
 				disabled={isLoading}
+				style={{display: 'flex', flexWrap:'wrap', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}
 			>
 				{isLoading ? <Loader /> : 'Sign Up'}
 			</motion.button>

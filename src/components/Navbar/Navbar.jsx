@@ -108,6 +108,11 @@ const Navbar = () => {
 										</NavLink>
 									</li>
 									<li className="Navbar__navlinks--link">
+										<NavLink to="/chat" activeClassName="activeNavLink">
+											Conversation
+										</NavLink>
+									</li>
+									<li className="Navbar__navlinks--link">
 										<NavLink to="/mylist" activeClassName="activeNavLink">
 											My list
 										</NavLink>

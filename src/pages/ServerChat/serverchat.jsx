@@ -2,7 +2,6 @@ import "./serverchat.scss"
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/auth/auth.selectors";
-// import axios from "axios";
 import socketIOClient from "socket.io-client";
 
 const host = "https://easy-json-sesver-demo.herokuapp.com";

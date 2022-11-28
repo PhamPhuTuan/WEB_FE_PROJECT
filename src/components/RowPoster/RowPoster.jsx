@@ -2,7 +2,11 @@ import "./rowPoster.scss";
 import { BASE_IMG_URL } from "../../requests";
 import { useDispatch } from "react-redux";
 import { addToFavourites, removeFromFavourites } from "../../redux/favourites/favourites.actions";
-import { FaPlus, FaMinus, FaPlay, FaChevronDown } from "react-icons/fa";
+import {  FaPlay } from "react-icons/fa";
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import InfoIcon from '@mui/icons-material/Info';
+import RemoveIcon from '@mui/icons-material/Remove';
 import useGenreConversion from "../../hooks/useGenreConversion";
 import { showModalDetail } from "../../redux/modal/modal.actions";
 import { Link } from "react-router-dom";
@@ -49,7 +53,7 @@ const RowPoster = result => {
 				</>
 			)}
 			<div className="Row__poster-info">
-				<div className="Row__poster-info--iconswrp">
+				<div style={{width: '100px', display: 'flex', justifyContent: 'space-around'}} className="Row__poster-info--iconswrp">
 					<Link
 						className="Row__poster-info--icon icon--play"
 						onClick={handlePlayAction}
@@ -59,17 +63,22 @@ const RowPoster = result => {
 					</Link>
 					{!isFavourite
 						? (
-							<button className='Row__poster-info--icon icon--favourite' onClick={handleAdd}>
-								<FaPlus />
-							</button>
+							<IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleAdd}>
+								<AddIcon/>
+							</IconButton>
 						): (
-							<button className='Row__poster-info--icon icon--favourite' onClick={handleRemove}>
-								<FaMinus />
-							</button>
-						)}
-					<button className='Row__poster-info--icon icon--toggleModal'>
-						<FaChevronDown onClick={handleModalOpening}/>
+							<IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleRemove}>
+								<RemoveIcon/>
+							</IconButton>
+					)}
+						{/* <div style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}}>
+							<button className='Row__poster-info--icon icon--toggleModal' onClick={handleModalOpening}>
+						i
 					</button>
+						</div> */}
+						<IconButton style={{backgroundColor: '#fad4c4',borderRadius: '50%', width: '25px', height: '25px'}} onClick={handleModalOpening}>
+							<InfoIcon/>
+						</IconButton>
 				</div>
 				<div className="Row__poster-info--title">
 					<h3>{fallbackTitle}</h3>
